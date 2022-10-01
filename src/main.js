@@ -1,5 +1,9 @@
-import handleAPI from './api_handler.js'
+import ApiHandler from './api_handler.js'
+import ObjectMaker from './object_maker.js' 
 
-let apiHandler = new handleAPI();
+let apiHandler = new ApiHandler();
+let objectMaker = new ObjectMaker();
 
-apiHandler.getWeatherData('london');
+let data = await apiHandler.getWeatherData('london');
+let cityWeather = objectMaker.returnObject(data);
+console.log(cityWeather);
