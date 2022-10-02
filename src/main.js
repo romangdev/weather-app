@@ -28,3 +28,19 @@ searchBtn.addEventListener('click', (e) => {
   })();
 });
 
+document.addEventListener('click', (e) => {
+  if (e.target.className === 'temp-btn') {
+    displayController.removeAllChildren(weatherInfo);
+
+    let btnText = e.target.innerText;
+    let tempUnit = btnText.includes('Celsius') ? 'Celsius' : 'Farenheit';
+    console.log(tempUnit);
+    displayController.displayTemperature(cityWeather, weatherInfo, tempUnit);
+    if (tempUnit === 'Celsius') {
+      displayController.displayTempChangeBtn(weatherInfo, 'Farenheit');
+    } else {
+      displayController.displayTempChangeBtn(weatherInfo, 'Celsius');
+    }
+  }
+});
+

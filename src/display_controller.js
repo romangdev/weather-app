@@ -18,9 +18,9 @@ export default class DisplayController {
       console.log(farenheit);
       temp.textContent = `${farenheit}`;
     } else {
-      // let farenheit = data_manipulator.makeFarenheit(cityWeather.temp);
-      // console.log(farenheit);
-      // temp.textContent = `${farenheit}`;
+      let celsius = data_manipulator.makeCelsius(cityWeather.temp);
+      console.log(celsius);
+      temp.textContent = `${celsius}`;
     }
     weatherInfo.append(temp);
   }
