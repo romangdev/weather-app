@@ -1,3 +1,7 @@
+import DataManipulator from './data_manipulator.js'
+
+let data_manipulator = new DataManipulator();
+
 export default class DisplayController {
   removeAllChildren = (weatherInfo) => {
     let child = weatherInfo.lastElementChild;
@@ -7,10 +11,17 @@ export default class DisplayController {
     }
   }
 
-  displayTemperature = (cityWeather, weatherInfo) => {
+  displayTemperature = (cityWeather, weatherInfo, unit) => {
     let temp = document.createElement('p');
-    console.log(cityWeather.temp);
-    temp.textContent = `${cityWeather.temp}`;
+    if (unit === 'Farenheit') {
+      let farenheit = data_manipulator.makeFarenheit(cityWeather.temp);
+      console.log(farenheit);
+      temp.textContent = `${farenheit}`;
+    } else {
+      // let farenheit = data_manipulator.makeFarenheit(cityWeather.temp);
+      // console.log(farenheit);
+      // temp.textContent = `${farenheit}`;
+    }
     weatherInfo.append(temp);
   }
 }
