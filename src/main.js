@@ -1,8 +1,10 @@
 import ApiHandler from './api_handler.js'
 import ObjectMaker from './object_maker.js' 
+import DisplayController from './display_controller.js'
 
 let apiHandler = new ApiHandler();
 let objectMaker = new ObjectMaker();
+let displayController = new DisplayController();
 
 // let cityInput = document.querySelector('.city');
 let searchBtn = document.querySelector(".search-btn");
@@ -14,9 +16,8 @@ searchBtn.addEventListener('click', (e) => {
     console.log(data);
     let cityWeather = objectMaker.returnObject(data);
     console.log(cityWeather);
-    let temp = document.createElement('p');
-    console.log(cityWeather.temp);
-    temp.textContent = `${cityWeather.temp}`;
-    weatherInfo.append(temp);
+
+    displayController.removeAllChildren(weatherInfo);
+    displayController.displayTemperature(cityWeather, weatherInfo);
   })();
 });
