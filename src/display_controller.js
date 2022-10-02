@@ -21,10 +21,10 @@ export default class DisplayController {
     let temp = document.createElement('p');
     if (unit === 'Farenheit') {
       let farenheit = data_manipulator.makeFarenheit(cityWeather.temp);
-      temp.innerText = `${farenheit} °Farenheit`;
+      temp.innerText = `${farenheit} °F`;
     } else {
       let celsius = data_manipulator.makeCelsius(cityWeather.temp);
-      temp.innerText = `${celsius} °Celsius`;
+      temp.innerText = `${celsius} °C`;
     }
     weatherInfo.append(temp);
   }

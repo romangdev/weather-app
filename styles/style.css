@@ -52,3 +52,65 @@ table {
 
 
 /* MAIN STYLING CODE */
+
+.main {
+	text-align: center;
+	padding-top: 40px;
+	width: 320px;
+	align-self: center;
+	margin: auto;
+}
+
+h1 {
+	font-size: 2.3em;
+}
+
+/* .search-btn {
+	margin-top: 15px;
+} */
+
+.weather-info {
+	margin-top: 10%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	border: 1px solid black;
+}
+
+label {
+	font-size: 1.2em;
+}
+
+input {
+	font-size: 1em;
+}
+
+button {
+	width: 200px;
+	height: 40px;
+	border-radius: 10px;
+	border: none;
+	background-color: rgb(87, 90, 243);
+	color: white;
+	font-size: 1.2em;
+}
+
+/* Mobile Design */
+@media only screen and (max-width: 480px) {
+ .search-btn {
+		margin-top: 20px;
+	}
+	.weather-info {
+		margin-top: 15%;
+		height: 300px;
+		align-items: center;
+	}
+
+	.weather-info > p {
+		font-size: 2.7em;
+	}
+
+	input {
+		margin-top: 10px;
+	}
+}

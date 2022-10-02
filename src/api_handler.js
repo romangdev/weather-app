@@ -3,7 +3,7 @@ export default class ApiHandler {
     try {
       let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=589970a2440f5a30f2fca88685162eb3`, { mode: 'cors' });
       if (response.ok === false) {
-        throw new Error('NOT GOOD DOG!');
+        throw new Error('Incorrect City Name');
       } else {
         let data = await response.json();
         return data;
