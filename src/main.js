@@ -8,7 +8,6 @@ let objectMaker = new ObjectMaker();
 let displayController = new DisplayController();
 let dataManipulator = new DataManipulator();
 
-// let cityInput = document.querySelector('.city');
 let searchBtn = document.querySelector(".search-btn");
 let weatherInfo = document.querySelector('.weather-info');
 let cityWeather = null;
@@ -16,14 +15,15 @@ let cityWeather = null;
 searchBtn.addEventListener('click', (e) => {
   (async function() {
     let data = await apiHandler.getWeatherData(city.value);
+    console.log(city.value);
     cityWeather = objectMaker.returnObject(data);
     let tempUnit = 'Farenheit';
     console.log(data);
     console.log(cityWeather);
 
     displayController.removeAllChildren(weatherInfo);
+    displayController.displayCity(city.value, weatherInfo);
     displayController.displayTemperature(cityWeather, weatherInfo, tempUnit);
-
     displayController.displayTempChangeBtn(weatherInfo, 'Celsius');
   })();
 });
@@ -34,8 +34,9 @@ document.addEventListener('click', (e) => {
 
     let btnText = e.target.innerText;
     let tempUnit = btnText.includes('Celsius') ? 'Celsius' : 'Farenheit';
-    console.log(tempUnit);
+    displayController.displayCity(city.value, weatherInfo);
     displayController.displayTemperature(cityWeather, weatherInfo, tempUnit);
+
     if (tempUnit === 'Celsius') {
       displayController.displayTempChangeBtn(weatherInfo, 'Farenheit');
     } else {

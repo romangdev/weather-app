@@ -11,16 +11,20 @@ export default class DisplayController {
     }
   }
 
+  displayCity = (cityName, weatherInfo) => {
+    let cityHeader = document.createElement('h1');
+    cityHeader.innerText = `Weather in ${cityName.toUpperCase()}`;
+    weatherInfo.appendChild(cityHeader);
+  }
+
   displayTemperature = (cityWeather, weatherInfo, unit) => {
     let temp = document.createElement('p');
     if (unit === 'Farenheit') {
       let farenheit = data_manipulator.makeFarenheit(cityWeather.temp);
-      console.log(farenheit);
-      temp.textContent = `${farenheit}`;
+      temp.innerText = `${farenheit} °Farenheit`;
     } else {
       let celsius = data_manipulator.makeCelsius(cityWeather.temp);
-      console.log(celsius);
-      temp.textContent = `${celsius}`;
+      temp.innerText = `${celsius} °Celsius`;
     }
     weatherInfo.append(temp);
   }
