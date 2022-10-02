@@ -56,7 +56,6 @@ table {
 .main {
 	text-align: center;
 	padding-top: 40px;
-	width: 320px;
 	align-self: center;
 	margin: auto;
 }
@@ -65,16 +64,14 @@ h1 {
 	font-size: 2.3em;
 }
 
-/* .search-btn {
-	margin-top: 15px;
-} */
-
 .weather-info {
 	margin-top: 10%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
+	padding: 10px;
 	border: 1px solid black;
+	margin: auto;
 }
 
 label {
@@ -97,13 +94,75 @@ button {
 
 /* Mobile Design */
 @media only screen and (max-width: 480px) {
- .search-btn {
+	.main {
+		width: 320px;
+	}
+
+ 	.search-btn {
 		margin-top: 20px;
 	}
 	.weather-info {
 		margin-top: 15%;
 		height: 300px;
 		align-items: center;
+	}
+
+	.weather-info > p {
+		font-size: 2.7em;
+	}
+
+	input {
+		margin-top: 10px;
+	}
+}
+
+/* Tablet Design */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+	.main {
+		width: 481px;
+	}
+	
+	.search-btn {
+		margin-top: 20px;
+	}
+	.weather-info {
+		margin-top: 15%;
+		height: 300px;
+		align-items: center;
+	}
+
+	.weather-info > p {
+		font-size: 2.7em;
+	}
+
+	input {
+		margin-top: 10px;
+	}
+}
+
+/* Laptop and Desktop Design */
+@media only screen and (min-width: 769px) {
+	.main {
+		margin-top: 50px;
+		width: 768px;
+	}
+
+	label {
+		font-size: 1.5em;
+	}
+
+	input {
+		height: 22px;
+	}
+
+	.search-btn {
+		margin-top: 20px;
+	}
+	.weather-info {
+		margin-top: 10%;
+		height: 300px;
+		align-items: center;
+		width: 500px;
 	}
 
 	.weather-info > p {
