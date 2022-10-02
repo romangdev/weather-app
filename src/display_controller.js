@@ -24,4 +24,11 @@ export default class DisplayController {
     }
     weatherInfo.append(temp);
   }
+
+  displayTempChangeBtn = (weatherInfo, unit) => {
+    let tempBtn = document.createElement('button');
+    tempBtn.classList.add('temp-btn');
+    tempBtn.innerText = `Change to ${unit}`;
+    weatherInfo.appendChild(tempBtn);
+  }
 }

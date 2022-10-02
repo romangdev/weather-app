@@ -11,11 +11,12 @@ let dataManipulator = new DataManipulator();
 // let cityInput = document.querySelector('.city');
 let searchBtn = document.querySelector(".search-btn");
 let weatherInfo = document.querySelector('.weather-info');
+let cityWeather = null;
 
 searchBtn.addEventListener('click', (e) => {
   (async function() {
     let data = await apiHandler.getWeatherData(city.value);
-    let cityWeather = objectMaker.returnObject(data);
+    cityWeather = objectMaker.returnObject(data);
     let tempUnit = 'Farenheit';
     console.log(data);
     console.log(cityWeather);
@@ -23,9 +24,7 @@ searchBtn.addEventListener('click', (e) => {
     displayController.removeAllChildren(weatherInfo);
     displayController.displayTemperature(cityWeather, weatherInfo, tempUnit);
 
-    let tempBtn = document.createElement('button');
-    tempBtn.classList.add('temp-btn');
-    tempBtn.innerText = `Change to Celsius`;
-    weatherInfo.appendChild(tempBtn);
+    displayController.displayTempChangeBtn(weatherInfo, 'Celsius');
   })();
 });
+
