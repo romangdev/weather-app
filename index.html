@@ -12,15 +12,23 @@
   <script type="module" src="src/main.js"></script>
 </head>
 <body>
+  <header>
+    <nav>
+      <img src="./images-icons/temperature-2-512.png" alt="" class="thermometer-img">
+      <p>TempWise</p>
+    </nav>
+  </header>
   <div class="main">
-    <form action="" id="weather-form">
+    <form method="post" id="weather-form">
       <label for="city">
         Enter City Name:
         <input type="text" id="city" name="city">
       </label>
     </form>
     <button type="submit" class="search-btn">Get Weather!</button>
-    <div class="weather-info"></div>
+    <div class="weather-info">
+      <div class="lds-spinner hidden"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
   </div>
 </body>
 </html>

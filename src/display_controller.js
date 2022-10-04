@@ -6,14 +6,18 @@ export default class DisplayController {
   removeAllChildren = (weatherInfo) => {
     let child = weatherInfo.lastElementChild;
     while (child) {
-      weatherInfo.removeChild(child);
-      child = weatherInfo.lastElementChild;
+      if (!(child.classList.contains('lds-spinner'))) {
+        weatherInfo.removeChild(child);
+        child = weatherInfo.lastElementChild;
+      } else {
+        child = false;
+      }
     }
   }
 
   displayCity = (cityName, weatherInfo) => {
     let cityHeader = document.createElement('h1');
-    cityHeader.innerText = `Weather in ${cityName.toUpperCase()}`;
+    cityHeader.innerText = `Temperature in ${cityName.toUpperCase()}`;
     weatherInfo.appendChild(cityHeader);
   }
 

@@ -10,11 +10,14 @@ let dataManipulator = new DataManipulator();
 
 let searchBtn = document.querySelector(".search-btn");
 let weatherInfo = document.querySelector('.weather-info');
+let spinner = document.querySelector('.lds-spinner');
 let saveCityName = null;
 let cityWeather = null;
 
 searchBtn.addEventListener('click', (e) => {
   (async function() {
+    displayController.removeAllChildren(weatherInfo);
+    spinner.classList.remove('hidden');
     let data = await apiHandler.getWeatherData(city.value);
     saveCityName = city.value;
     console.log(city.value);
@@ -23,7 +26,7 @@ searchBtn.addEventListener('click', (e) => {
     console.log(data);
     console.log(cityWeather);
 
-    displayController.removeAllChildren(weatherInfo);
+    spinner.classList.add('hidden');
     displayController.displayCity(city.value, weatherInfo);
     displayController.displayTemperature(cityWeather, weatherInfo, tempUnit);
     displayController.displayTempChangeBtn(weatherInfo, 'Celsius');
