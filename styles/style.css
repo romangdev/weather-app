@@ -108,6 +108,10 @@ input {
 	font-size: 1em;
 }
 
+form p {
+	margin-top: 15px;
+}
+
 button {
 	width: 200px;
 	height: 40px;
